@@ -1,0 +1,6 @@
+screenshot_*.png
+backend/.env
+backend/.venv/
+backend/*.db
+*.xcuserdata
+DerivedData/

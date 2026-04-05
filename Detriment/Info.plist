@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Detriment scans your local network to discover connected devices and assess your network security.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_tcp._tcp.</string>
+		<string>_http._tcp.</string>
+		<string>_https._tcp.</string>
+		<string>_airplay._tcp.</string>
+		<string>_raop._tcp.</string>
+		<string>_smb._tcp.</string>
+		<string>_ssh._tcp.</string>
+		<string>_homekit._tcp.</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.detriment.app.networkscan</string>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E836A56555F4F11BDE9F987 /* BackgroundScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */; };
+		2FA704107955A8A15BECA1D9 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760BB9D21E75C5D442B032FD /* DeviceRow.swift */; };
+		3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */; };
+		5DF8F4DE345C097BD2153E1F /* DetrimentWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */; };
+		620904A3CEE6BB160D701187 /* MACVendorLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */; };
+		7F3CBF3B8EBE3BF85AC6FDBB /* DeviceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203DC369534F290E23499BD /* DeviceStorage.swift */; };
+		83EFB938F45DB526E30B2EFE /* DetrimentWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */; };
+		9C7F330FB58A9BA122A567C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC85B3147A9B9941ACF9745E /* Assets.xcassets */; };
+		A38D3D1081A4BF47414D521C /* DetrimentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DA82E5E2C77A5715F1780 /* DetrimentApp.swift */; };
+		A4C857BA9A111B309259A230 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B42991674D95B501F25F1D /* MainView.swift */; };
+		A54C3151C1C79D638F11D892 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB963FAA21C2E9F652E11896 /* APIClient.swift */; };
+		B3938F62923EBC04DF1BC892 /* NetworkDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */; };
+		B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */; };
+		F65C68FE377567DEAAB69BEE /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93893CD2554710466BF01E7 /* DeviceDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24CA84A36CE87CC371B8CEAD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C6F946B522B80A9F9FA5A3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E61FBBDA6A52192F5CD9121;
+			remoteInfo = DetrimentWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5A6F5446182DD2B463DDE19 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				83EFB938F45DB526E30B2EFE /* DetrimentWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		25C92C58D99C71AD1359195B /* DetrimentWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DetrimentWidgetExtension.entitlements; sourceTree = "<group>"; };
+		2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DetrimentWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detriment.entitlements; sourceTree = "<group>"; };
+		6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentWidget.swift; sourceTree = "<group>"; };
+		760BB9D21E75C5D442B032FD /* DeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRow.swift; sourceTree = "<group>"; };
+		85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPCache.swift; sourceTree = "<group>"; };
+		8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScanner.swift; sourceTree = "<group>"; };
+		8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDevice.swift; sourceTree = "<group>"; };
+		A03231F2F625B764BEFEBB0A /* Detriment.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Detriment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C203DC369534F290E23499BD /* DeviceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStorage.swift; sourceTree = "<group>"; };
+		C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScanner.swift; sourceTree = "<group>"; };
+		C51DA82E5E2C77A5715F1780 /* DetrimentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentApp.swift; sourceTree = "<group>"; };
+		C93893CD2554710466BF01E7 /* DeviceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailView.swift; sourceTree = "<group>"; };
+		CF6B225037E3F5C34196816C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D1B42991674D95B501F25F1D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DB963FAA21C2E9F652E11896 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MACVendorLookup.swift; sourceTree = "<group>"; };
+		EC85B3147A9B9941ACF9745E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		199B82DBE3C51C5A8A199B8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DB963FAA21C2E9F652E11896 /* APIClient.swift */,
+				85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */,
+				C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */,
+				C203DC369534F290E23499BD /* DeviceStorage.swift */,
+				E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */,
+				8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */,
+				A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4521C308AF00B2C4E5791F89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C93893CD2554710466BF01E7 /* DeviceDetailView.swift */,
+				760BB9D21E75C5D442B032FD /* DeviceRow.swift */,
+				D1B42991674D95B501F25F1D /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A06114750C66D7E8934BDE2 /* DetrimentWidget */ = {
+			isa = PBXGroup;
+			children = (
+				6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */,
+				25C92C58D99C71AD1359195B /* DetrimentWidgetExtension.entitlements */,
+			);
+			path = DetrimentWidget;
+			sourceTree = "<group>";
+		};
+		83C1D9C8BE5F6362294A7237 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C51DA82E5E2C77A5715F1780 /* DetrimentApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8B16D693B6A60694D810F666 = {
+			isa = PBXGroup;
+			children = (
+				B81E749F794FF2E9EDBA6F79 /* Detriment */,
+				4A06114750C66D7E8934BDE2 /* DetrimentWidget */,
+				E0B0B6E25748B03E8E96F05D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F9F7C236340F8860CBDFBB3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B81E749F794FF2E9EDBA6F79 /* Detriment */ = {
+			isa = PBXGroup;
+			children = (
+				EC85B3147A9B9941ACF9745E /* Assets.xcassets */,
+				449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */,
+				CF6B225037E3F5C34196816C /* Info.plist */,
+				83C1D9C8BE5F6362294A7237 /* App */,
+				E18FFE7B5138406631FAAA6A /* Models */,
+				8F9F7C236340F8860CBDFBB3 /* Resources */,
+				199B82DBE3C51C5A8A199B8F /* Services */,
+				D559E557A95B49727536C349 /* ViewModels */,
+				4521C308AF00B2C4E5791F89 /* Views */,
+			);
+			path = Detriment;
+			sourceTree = "<group>";
+		};
+		D559E557A95B49727536C349 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E0B0B6E25748B03E8E96F05D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A03231F2F625B764BEFEBB0A /* Detriment.app */,
+				2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E18FFE7B5138406631FAAA6A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1E61FBBDA6A52192F5CD9121 /* DetrimentWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF965FB868478D2C94D09A87 /* Build configuration list for PBXNativeTarget "DetrimentWidgetExtension" */;
+			buildPhases = (
+				3EBFA386F57DC1A168E7149C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DetrimentWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = DetrimentWidgetExtension;
+			productReference = 2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		87D5953CEAE0BEDF2AFD67D6 /* Detriment */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53E7B53036EFAE09B2F27D73 /* Build configuration list for PBXNativeTarget "Detriment" */;
+			buildPhases = (
+				B20C5FC4FD1B44C76221CA8B /* Sources */,
+				E45B5E1408B5C7084D753949 /* Resources */,
+				A5A6F5446182DD2B463DDE19 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAE88F14F1FA1CCB46D524C9 /* PBXTargetDependency */,
+			);
+			name = Detriment;
+			packageProductDependencies = (
+			);
+			productName = Detriment;
+			productReference = A03231F2F625B764BEFEBB0A /* Detriment.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C6F946B522B80A9F9FA5A3F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 1775C359C2410975FC20D539 /* Build configuration list for PBXProject "Detriment" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 8B16D693B6A60694D810F666;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87D5953CEAE0BEDF2AFD67D6 /* Detriment */,
+				1E61FBBDA6A52192F5CD9121 /* DetrimentWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E45B5E1408B5C7084D753949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C7F330FB58A9BA122A567C2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EBFA386F57DC1A168E7149C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DF8F4DE345C097BD2153E1F /* DetrimentWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B20C5FC4FD1B44C76221CA8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A54C3151C1C79D638F11D892 /* APIClient.swift in Sources */,
+				3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */,
+				2E836A56555F4F11BDE9F987 /* BackgroundScanner.swift in Sources */,
+				A38D3D1081A4BF47414D521C /* DetrimentApp.swift in Sources */,
+				F65C68FE377567DEAAB69BEE /* DeviceDetailView.swift in Sources */,
+				2FA704107955A8A15BECA1D9 /* DeviceRow.swift in Sources */,
+				7F3CBF3B8EBE3BF85AC6FDBB /* DeviceStorage.swift in Sources */,
+				620904A3CEE6BB160D701187 /* MACVendorLookup.swift in Sources */,
+				A4C857BA9A111B309259A230 /* MainView.swift in Sources */,
+				B3938F62923EBC04DF1BC892 /* NetworkDevice.swift in Sources */,
+				B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */,
+				8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAE88F14F1FA1CCB46D524C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E61FBBDA6A52192F5CD9121 /* DetrimentWidgetExtension */;
+			targetProxy = 24CA84A36CE87CC371B8CEAD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1AE69F8911E2D9F23F62915C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DetrimentWidget/DetrimentWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Detriment Widget";
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detriment.app.widget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30475A3EEF7F45EA943A53BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Detriment/Detriment.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Detriment/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Detriment;
+				INFOPLIST_KEY_UIBackgroundModes = fetch;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detriment.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		79E1A48EA9BE05638D0F625F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Detriment/Detriment.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Detriment/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Detriment;
+				INFOPLIST_KEY_UIBackgroundModes = fetch;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detriment.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9001E59D58F097F2E6295D80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DetrimentWidget/DetrimentWidgetExtension.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Detriment Widget";
+				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.detriment.app.widget;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A849884A625A3628C9F48A16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBonjourServices = "_tcp,_udp,_http._tcp,_https._tcp,_airplay._tcp,_raop._tcp,_smb._tcp,_rfb._tcp,_ssh._tcp,_ipp._tcp,_printer._tcp,_scanner._tcp,_companion-link._tcp,_homekit._tcp,_hap._tcp";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Detriment scans your local network to discover connected devices and assess your network security.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BC4F31FD3F048748058698B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSBonjourServices = "_tcp,_udp,_http._tcp,_https._tcp,_airplay._tcp,_raop._tcp,_smb._tcp,_rfb._tcp,_ssh._tcp,_ipp._tcp,_printer._tcp,_scanner._tcp,_companion-link._tcp,_homekit._tcp,_hap._tcp";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Detriment scans your local network to discover connected devices and assess your network security.";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1775C359C2410975FC20D539 /* Build configuration list for PBXProject "Detriment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC4F31FD3F048748058698B9 /* Debug */,
+				A849884A625A3628C9F48A16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		53E7B53036EFAE09B2F27D73 /* Build configuration list for PBXNativeTarget "Detriment" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79E1A48EA9BE05638D0F625F /* Debug */,
+				30475A3EEF7F45EA943A53BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FF965FB868478D2C94D09A87 /* Build configuration list for PBXNativeTarget "DetrimentWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9001E59D58F097F2E6295D80 /* Debug */,
+				1AE69F8911E2D9F23F62915C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C6F946B522B80A9F9FA5A3F /* Project object */;
+}
