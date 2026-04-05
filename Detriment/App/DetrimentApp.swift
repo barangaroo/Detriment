@@ -2,6 +2,8 @@ import SwiftUI
 
 @main
 struct DetrimentApp: App {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+
     init() {
         NotificationManager.shared.requestPermission()
         BackgroundScanner.shared.registerBackgroundTask()
@@ -9,11 +11,16 @@ struct DetrimentApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .preferredColorScheme(.dark)
-                .onAppear {
-                    BackgroundScanner.shared.scheduleBackgroundScan()
-                }
+            if hasSeenOnboarding {
+                MainView()
+                    .preferredColorScheme(.dark)
+                    .onAppear {
+                        BackgroundScanner.shared.scheduleBackgroundScan()
+                    }
+            } else {
+                OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
+                    .preferredColorScheme(.dark)
+            }
         }
     }
 }

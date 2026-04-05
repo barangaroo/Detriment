@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14622A897F9D6055821CECF5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */; };
 		2E836A56555F4F11BDE9F987 /* BackgroundScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */; };
 		2FA704107955A8A15BECA1D9 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760BB9D21E75C5D442B032FD /* DeviceRow.swift */; };
 		3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		25C92C58D99C71AD1359195B /* DetrimentWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DetrimentWidgetExtension.entitlements; sourceTree = "<group>"; };
+		2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DetrimentWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detriment.entitlements; sourceTree = "<group>"; };
 		6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentWidget.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				C93893CD2554710466BF01E7 /* DeviceDetailView.swift */,
 				760BB9D21E75C5D442B032FD /* DeviceRow.swift */,
 				D1B42991674D95B501F25F1D /* MainView.swift */,
+				2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				B3938F62923EBC04DF1BC892 /* NetworkDevice.swift in Sources */,
 				B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */,
 				8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */,
+				14622A897F9D6055821CECF5 /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

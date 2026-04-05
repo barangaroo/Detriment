@@ -1,6 +1,7 @@
 import Foundation
 import Network
 import WidgetKit
+import UIKit
 
 @MainActor
 final class NetworkScanner: ObservableObject {
@@ -36,6 +37,14 @@ final class NetworkScanner: ObservableObject {
 
             calculateDetrimentScore()
             isScanning = false
+
+            // Haptic feedback on scan complete
+            let generator = UINotificationFeedbackGenerator()
+            if let score = detrimentScore, score.total > 60 {
+                generator.notificationOccurred(.warning)
+            } else {
+                generator.notificationOccurred(.success)
+            }
         }
     }
 
