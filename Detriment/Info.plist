@@ -11,18 +11,7 @@
 	<string>Detriment scans your local network to discover connected devices and assess your network security.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detriment needs your location to identify your WiFi network name and security type.</string>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_tcp._tcp.</string>
-		<string>_http._tcp.</string>
-		<string>_https._tcp.</string>
-		<string>_airplay._tcp.</string>
-		<string>_raop._tcp.</string>
-		<string>_smb._tcp.</string>
-		<string>_ssh._tcp.</string>
-		<string>_homekit._tcp.</string>
-	</array>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
+<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>com.detriment.app.networkscan</string>
 	</array>

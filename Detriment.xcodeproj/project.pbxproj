@@ -12,6 +12,7 @@
 		2E836A56555F4F11BDE9F987 /* BackgroundScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */; };
 		2FA704107955A8A15BECA1D9 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760BB9D21E75C5D442B032FD /* DeviceRow.swift */; };
 		3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */; };
+		485F807C6B8043CC2DA83465 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 32FAFF0C8BDD8DFA4DFDFC3F /* PrivacyInfo.xcprivacy */; };
 		5DF8F4DE345C097BD2153E1F /* DetrimentWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */; };
 		620904A3CEE6BB160D701187 /* MACVendorLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */; };
 		7F3CBF3B8EBE3BF85AC6FDBB /* DeviceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203DC369534F290E23499BD /* DeviceStorage.swift */; };
@@ -56,6 +57,7 @@
 		25C92C58D99C71AD1359195B /* DetrimentWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DetrimentWidgetExtension.entitlements; sourceTree = "<group>"; };
 		2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DetrimentWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		32FAFF0C8BDD8DFA4DFDFC3F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detriment.entitlements; sourceTree = "<group>"; };
 		6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentWidget.swift; sourceTree = "<group>"; };
 		760BB9D21E75C5D442B032FD /* DeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRow.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				EC85B3147A9B9941ACF9745E /* Assets.xcassets */,
 				449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */,
 				CF6B225037E3F5C34196816C /* Info.plist */,
+				32FAFF0C8BDD8DFA4DFDFC3F /* PrivacyInfo.xcprivacy */,
 				83C1D9C8BE5F6362294A7237 /* App */,
 				E18FFE7B5138406631FAAA6A /* Models */,
 				8F9F7C236340F8860CBDFBB3 /* Resources */,
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C7F330FB58A9BA122A567C2 /* Assets.xcassets in Resources */,
+				485F807C6B8043CC2DA83465 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +436,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSBonjourServices = "_tcp,_udp,_http._tcp,_https._tcp,_airplay._tcp,_raop._tcp,_smb._tcp,_rfb._tcp,_ssh._tcp,_ipp._tcp,_printer._tcp,_scanner._tcp,_companion-link._tcp,_homekit._tcp,_hap._tcp";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Detriment scans your local network to discover connected devices and assess your network security.";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -497,7 +500,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSBonjourServices = "_tcp,_udp,_http._tcp,_https._tcp,_airplay._tcp,_raop._tcp,_smb._tcp,_rfb._tcp,_ssh._tcp,_ipp._tcp,_printer._tcp,_scanner._tcp,_companion-link._tcp,_homekit._tcp,_hap._tcp";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Detriment scans your local network to discover connected devices and assess your network security.";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;

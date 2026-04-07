@@ -530,9 +530,11 @@ final class NetworkScanner: ObservableObject {
             }
         }
 
-        // Submit anonymized report for crowdsourced data
-        Task {
-            await APIClient.shared.reportScan(devices)
+        // Submit anonymized report only if user opted in
+        if UserDefaults.standard.bool(forKey: "shareAnonymousData") {
+            Task {
+                await APIClient.shared.reportScan(devices)
+            }
         }
     }
 

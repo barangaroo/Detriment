@@ -14,6 +14,9 @@
         li { margin-bottom: 8px; font-size: 15px; }
         .date { color: #666; font-size: 13px; margin-bottom: 32px; font-family: ui-monospace, monospace; }
         strong { color: #fff; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #222; font-size: 14px; }
+        th { color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -23,32 +26,40 @@
     <p>Detriment is a WiFi security scanner that runs on your device. We built it with privacy as a core principle.</p>
 
     <h2>What stays on your device</h2>
-    <p>All of the following data is stored locally and never leaves your device:</p>
+    <p>All of the following data is stored locally on your device and <strong>never transmitted</strong>:</p>
     <ul>
         <li>IP addresses of devices on your network</li>
-        <li>MAC addresses and device identifiers</li>
+        <li>Full MAC addresses and device identifiers</li>
         <li>Device hostnames and custom names you assign</li>
-        <li>Your WiFi network name (SSID)</li>
-        <li>Scan history and Detriment Scores</li>
-        <li>Trusted device preferences</li>
+        <li>Your WiFi network name (SSID) and security type</li>
+        <li>Scan history, scores, and trusted device preferences</li>
     </ul>
 
-    <h2>What we collect</h2>
-    <p>When you run a scan, Detriment sends <strong>anonymized device type information</strong> to our server to improve detection accuracy. This includes:</p>
-    <ul>
-        <li>The first 3 bytes of MAC addresses (manufacturer prefix only — this identifies "Apple" or "Samsung", not your specific device)</li>
-        <li>Open port numbers</li>
-    </ul>
-    <p>We do <strong>not</strong> collect your IP address, full MAC address, device names, network name, location, or any other personally identifiable information.</p>
+    <h2>Optional anonymous data sharing</h2>
+    <p>If you enable <strong>"Improve Detection"</strong> in Settings, Detriment sends the following anonymized data to our API (<code>api.detriment.ai</code>) after each scan:</p>
+
+    <table>
+        <tr><th>Data</th><th>Example</th><th>Purpose</th></tr>
+        <tr><td>MAC prefix (first 3 bytes)</td><td><code>C0:06:C3</code></td><td>Identifies manufacturer (e.g., "TP-Link"), not your specific device</td></tr>
+        <tr><td>Open port numbers</td><td><code>[80, 443, 554]</code></td><td>Improves device type detection</td></tr>
+    </table>
+
+    <p>This feature is <strong>off by default</strong>. You must explicitly enable it. No request includes your IP address, full MAC address, device name, network name, location, or any user identifier. Requests are stateless — we cannot correlate reports across sessions.</p>
+
+    <p>We also query the same API to enrich scan results with manufacturer names and known vulnerabilities. These lookup requests contain only MAC prefixes and port numbers, identical to the table above.</p>
 
     <h2>Location data</h2>
-    <p>Detriment requests location permission solely because Apple requires it to read your WiFi network name and security type. We do not track, store, or transmit your location.</p>
+    <p>Detriment requests location permission because <strong>Apple requires it</strong> for apps that read your WiFi network name (SSID) and security type via the NEHotspotNetwork API. This is an iOS platform requirement, not our choice.</p>
+    <p>We do <strong>not</strong> access, store, or transmit your geographic location. The permission is used solely to unlock the WiFi information API.</p>
+
+    <h2>Local network access</h2>
+    <p>Detriment accesses your local network to discover devices via TCP connection attempts and reads the system ARP cache for MAC addresses. All discovered device data remains on your device.</p>
 
     <h2>Third-party services</h2>
-    <p>Detriment does not include any third-party analytics, advertising, or tracking SDKs.</p>
+    <p>Detriment contains <strong>zero</strong> third-party analytics, advertising, crash reporting, or tracking SDKs. The only network requests are to our own API at <code>api.detriment.ai</code>.</p>
 
     <h2>Data retention</h2>
-    <p>Anonymized device type data sent to our server is retained for up to 12 months to improve our detection database, then deleted.</p>
+    <p>If you enable anonymous data sharing, the anonymized device type data is retained on our server for up to 12 months to improve detection accuracy, then permanently deleted. We have no way to associate this data with you or your device.</p>
 
     <h2>Children</h2>
     <p>Detriment does not knowingly collect data from children under 13.</p>

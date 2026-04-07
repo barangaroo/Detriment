@@ -6,6 +6,7 @@ struct SettingsView: View {
     @State private var showClearNamesAlert = false
     @State private var showClearHistoryAlert = false
     @AppStorage("notificationsEnabled") private var notificationsEnabled = true
+    @AppStorage("shareAnonymousData") private var shareAnonymousData = false
 
     var body: some View {
         ZStack {
@@ -59,6 +60,24 @@ struct SettingsView: View {
                                     .font(.system(size: 14, weight: .medium, design: .monospaced))
                                     .foregroundColor(.white)
                                 Text("Get notified when unknown devices join")
+                                    .font(.system(size: 11, design: .monospaced))
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                    }
+                    .tint(.red)
+
+                    Toggle(isOn: $shareAnonymousData) {
+                        HStack(spacing: 12) {
+                            Image(systemName: "chart.bar.fill")
+                                .font(.system(size: 15))
+                                .foregroundColor(.blue)
+                                .frame(width: 24)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Improve Detection")
+                                    .font(.system(size: 14, weight: .medium, design: .monospaced))
+                                    .foregroundColor(.white)
+                                Text("Share anonymous device types to help everyone")
                                     .font(.system(size: 11, design: .monospaced))
                                     .foregroundColor(.gray)
                             }
