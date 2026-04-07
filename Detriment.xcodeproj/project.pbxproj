@@ -14,6 +14,7 @@
 		3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */; };
 		485F807C6B8043CC2DA83465 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 32FAFF0C8BDD8DFA4DFDFC3F /* PrivacyInfo.xcprivacy */; };
 		5DF8F4DE345C097BD2153E1F /* DetrimentWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */; };
+		5E21C704DF293247B444A985 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563D6B02315B2BDD25C90996 /* StoreManager.swift */; };
 		620904A3CEE6BB160D701187 /* MACVendorLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */; };
 		7F3CBF3B8EBE3BF85AC6FDBB /* DeviceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203DC369534F290E23499BD /* DeviceStorage.swift */; };
 		83EFB938F45DB526E30B2EFE /* DetrimentWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -25,6 +26,7 @@
 		A54C3151C1C79D638F11D892 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB963FAA21C2E9F652E11896 /* APIClient.swift */; };
 		B3938F62923EBC04DF1BC892 /* NetworkDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */; };
 		B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */; };
+		EA624C65BD5F6A31A7BB7A8A /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864435F077FFD446BD91E0FF /* PaywallView.swift */; };
 		F65C68FE377567DEAAB69BEE /* DeviceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93893CD2554710466BF01E7 /* DeviceDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,9 +61,11 @@
 		2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DetrimentWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FAFF0C8BDD8DFA4DFDFC3F /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		449F5A4B5D78F92E5B162C8A /* Detriment.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Detriment.entitlements; sourceTree = "<group>"; };
+		563D6B02315B2BDD25C90996 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		6BCA9A6C4BC93FA8B42BE112 /* DetrimentWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentWidget.swift; sourceTree = "<group>"; };
 		760BB9D21E75C5D442B032FD /* DeviceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRow.swift; sourceTree = "<group>"; };
 		85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPCache.swift; sourceTree = "<group>"; };
+		864435F077FFD446BD91E0FF /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkScanner.swift; sourceTree = "<group>"; };
 		8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDevice.swift; sourceTree = "<group>"; };
 		A03231F2F625B764BEFEBB0A /* Detriment.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Detriment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,7 @@
 				E8ABCE953F5747842E4AA488 /* MACVendorLookup.swift */,
 				8B43708BE2CB216BE1EA4AC2 /* NetworkScanner.swift */,
 				A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */,
+				563D6B02315B2BDD25C90996 /* StoreManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 				760BB9D21E75C5D442B032FD /* DeviceRow.swift */,
 				D1B42991674D95B501F25F1D /* MainView.swift */,
 				2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */,
+				864435F077FFD446BD91E0FF /* PaywallView.swift */,
 				AE16DFAC01C7BFB85C64BB64 /* ScanHistoryView.swift */,
 				1E1656159B2FA7DE17E3574F /* SettingsView.swift */,
 			);
@@ -287,8 +293,10 @@
 				B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */,
 				8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */,
 				14622A897F9D6055821CECF5 /* OnboardingView.swift in Sources */,
+				EA624C65BD5F6A31A7BB7A8A /* PaywallView.swift in Sources */,
 				932E14CCA34F0AB58E5D5CBB /* ScanHistoryView.swift in Sources */,
 				2B630ABB1972FDCF15BBF273 /* SettingsView.swift in Sources */,
+				5E21C704DF293247B444A985 /* StoreManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,9 +1,17 @@
-Know exactly who's on your WiFi — and what they're up to.
+Your WiFi isn't as safe as you think.
 
-Detriment scans your home network in seconds and shows you every connected device: phones, laptops, cameras, smart home gadgets, and anything suspicious. Each device gets a plain-English risk assessment so you don't need to be a tech expert to stay safe.
+The average home network has 17 connected devices. Most people can't name half of them. Detriment scans your network in seconds and shows you everything — every device, every open port, every risk — in plain English.
 
-YOUR DETRIMENT SCORE
-Get a clear A-F grade showing how secure your network is. The score breaks down into four categories: WiFi security, unknown devices, open ports, and risky devices. Tap any device to see exactly what's wrong and how to fix it.
+FREE: SCAN AND SEE YOUR SCORE
+Download for free and run your first scan immediately. See your Detriment Score (A-F), how many devices are on your network, and which ones need attention. No account, no signup.
+
+UNLOCK FULL INTEL ($3.99 one-time)
+Tap any device to see exactly what's going on:
+- Open ports and what they mean
+- Known vulnerabilities for that device's manufacturer
+- Step-by-step fix instructions
+- Security tips from our database
+- Trust and label your own devices
 
 WHAT IT FINDS
 - Every device on your WiFi, identified by name and manufacturer
@@ -11,23 +19,19 @@ WHAT IT FINDS
 - Cameras streaming video that others might watch
 - Devices with insecure remote access enabled
 - Cheap IoT chips with known security problems
-- Mystery devices that can't be identified
+- Mystery devices nobody can identify
 
 STAY INFORMED
 - Get notified instantly when a new device joins your network
-- Background monitoring checks for changes even when the app is closed
-- Home screen widget shows your score and new device alerts at a glance
+- Background monitoring even when the app is closed
+- Home screen widget with your score and new device alerts
 - Scan history tracks your network security over time
-
-TRUST & MANAGE
-- Mark your own devices as trusted so they stop flagging
-- Give devices custom names for easy identification
-- Share your scan report with family or your IT person
+- See how your network compares to others
 
 PRIVACY FIRST
 - No account required
 - Your network data stays on your device
-- Only anonymized device types are shared to improve detection (never IPs, names, or MAC addresses)
-- No ads, no tracking, no subscriptions
+- No ads, no tracking
+- One-time purchase, no subscription
 
-Built for normal people who want to know if their WiFi is safe.
+73% of home networks have at least one device with a known vulnerability. Find out if yours is one of them.

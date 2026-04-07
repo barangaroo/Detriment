@@ -2,7 +2,9 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var scanner: NetworkScanner
+    @ObservedObject private var store = StoreManager.shared
     @State private var selectedDevice: NetworkDevice?
+    @State private var showPaywall = false
     @State private var pulseScale: CGFloat = 1.0
     @State private var radarAngle: Double = 0
     @State private var showScore = false
@@ -104,7 +106,14 @@ struct MainView: View {
                 }
             }
             .sheet(item: $selectedDevice) { device in
-                DeviceDetailView(device: device, intel: scanner.getIntel(for: device))
+                if store.isUnlocked {
+                    DeviceDetailView(device: device, intel: scanner.getIntel(for: device))
+                } else {
+                    PaywallView(
+                        deviceName: device.displayName,
+                        riskCount: scanner.devices.filter { $0.riskLevel >= .medium }.count
+                    )
+                }
             }
         }
     }
@@ -343,6 +352,13 @@ struct MainView: View {
                         .foregroundColor(.white.opacity(0.8))
                         .lineLimit(2)
 
+                    if scanner.devices.filter({ $0.riskLevel >= .medium }).count > 0 {
+                        let riskyCount = scanner.devices.filter { $0.riskLevel >= .medium }.count
+                        Text("\(riskyCount) device\(riskyCount == 1 ? " needs" : "s need") your attention")
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .foregroundColor(.red)
+                    }
+
                     Button(action: { withAnimation { scanner.startScan() } }) {
                         HStack(spacing: 4) {
                             Image(systemName: "arrow.clockwise")
@@ -356,6 +372,16 @@ struct MainView: View {
                         .background(Capsule().fill(Color.red.opacity(0.1)))
                     }
                     .buttonStyle(.plain)
+
+                    // Percentile
+                    HStack(spacing: 4) {
+                        Image(systemName: score.total <= 40 ? "arrow.up.circle.fill" : "arrow.down.circle.fill")
+                            .font(.system(size: 10))
+                        Text(percentileText(score.total))
+                            .font(.system(size: 11, design: .monospaced))
+                    }
+                    .foregroundColor(score.total <= 40 ? .green : .orange)
+                    .padding(.top, 4)
                 }
 
                 Spacer()
@@ -487,6 +513,21 @@ struct MainView: View {
     }
 
     // MARK: - Helpers
+
+    private func percentileText(_ score: Int) -> String {
+        // Approximate percentile based on score ranges
+        // Lower score = better = higher percentile
+        switch score {
+        case 0...10: return "Safer than 95% of home networks"
+        case 11...20: return "Safer than 85% of home networks"
+        case 21...30: return "Safer than 70% of home networks"
+        case 31...40: return "Safer than 55% of home networks"
+        case 41...50: return "About average for home networks"
+        case 51...60: return "Riskier than 60% of home networks"
+        case 61...75: return "Riskier than 75% of home networks"
+        default: return "Riskier than 90% of home networks"
+        }
+    }
 
     private func gradeColor(_ score: DetrimentScore) -> Color {
         switch score.total {

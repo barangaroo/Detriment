@@ -34,6 +34,7 @@ struct DeviceDetailView: View {
                         // Show WHAT TO KNOW only if there are actual risk reasons beyond "looks fine"
                         if hasRealRisks {
                             riskSection
+                            fixStepsSection
                         } else if intel == nil || intel?.vulnerabilities.isEmpty == true {
                             // No backend intel and no local risks — show single all-clear
                             allClearSection
@@ -263,6 +264,93 @@ struct DeviceDetailView: View {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.white.opacity(0.03))
         )
+    }
+
+    // MARK: - Fix Steps
+
+    private var fixStepsSection: some View {
+        VStack(spacing: 0) {
+            sectionHeader("HOW TO FIX")
+
+            VStack(alignment: .leading, spacing: 0) {
+                ForEach(Array(fixSteps.enumerated()), id: \.offset) { index, step in
+                    HStack(alignment: .top, spacing: 12) {
+                        ZStack {
+                            Circle()
+                                .fill(Color.blue.opacity(0.15))
+                                .frame(width: 28, height: 28)
+                            Text("\(index + 1)")
+                                .font(.system(size: 12, weight: .bold, design: .monospaced))
+                                .foregroundColor(.blue)
+                        }
+
+                        Text(step)
+                            .font(.system(size: 13, design: .monospaced))
+                            .foregroundColor(.white.opacity(0.85))
+                            .lineSpacing(3)
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                }
+            }
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.blue.opacity(0.03))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.blue.opacity(0.08), lineWidth: 1)
+                )
+        )
+    }
+
+    private var fixSteps: [String] {
+        var steps: [String] = []
+
+        if device.deviceType == .unknown {
+            steps.append("Open your router's admin page (usually 192.168.1.1 in a browser)")
+            steps.append("Look for a list of connected devices")
+            steps.append("If you don't recognize this device, block its MAC address")
+        }
+
+        if device.openPorts.contains(where: { $0.port == 23 }) {
+            steps.append("Disable Telnet in this device's settings — it sends passwords in plain text")
+        }
+
+        if device.openPorts.contains(where: { $0.port == 554 }) {
+            steps.append("Set a strong password on your camera — anyone on your WiFi can watch the stream without one")
+            steps.append("Check for firmware updates in the camera's app")
+        }
+
+        if device.openPorts.contains(where: { $0.port == 445 }) {
+            steps.append("Make sure file sharing requires a password — go to the device's sharing settings")
+        }
+
+        if device.openPorts.contains(where: { $0.port == 3389 }) {
+            steps.append("Disable Remote Desktop if you don't use it — it's a common attack target")
+        }
+
+        if device.openPorts.contains(where: { $0.port == 22 }) {
+            steps.append("Change the default SSH password if you haven't already")
+        }
+
+        if let mfr = device.manufacturer?.lowercased() {
+            if mfr.contains("espressif") || mfr.contains("tuya") {
+                steps.append("Check if this smart device has a firmware update in its app")
+                steps.append("Consider putting IoT devices on a separate guest WiFi network")
+            }
+            if mfr.contains("hikvision") {
+                steps.append("Update Hikvision firmware immediately — older versions have critical vulnerabilities")
+                steps.append("Change the default admin password (admin/12345)")
+            }
+        }
+
+        if steps.isEmpty {
+            steps.append("Keep this device's software up to date")
+            steps.append("Make sure it uses a strong, unique password")
+        }
+
+        return steps
     }
 
     // MARK: - Vulnerabilities (from backend)

@@ -14,26 +14,26 @@ struct OnboardingView: View {
             VStack(spacing: 0) {
                 TabView(selection: $currentPage) {
                     onboardingPage(
-                        icon: "wifi.exclamationmark",
+                        icon: "exclamationmark.triangle.fill",
                         iconColor: .red,
-                        title: "See who's on\nyour WiFi",
-                        subtitle: "Discover every device connected to your network — phones, cameras, smart devices, and anything suspicious.",
+                        title: "Your WiFi\nisn't safe",
+                        subtitle: "The average home network has 17 connected devices. Most people can only name half of them.",
                         page: 0
                     ).tag(0)
 
                     onboardingPage(
-                        icon: "shield.lefthalf.filled",
+                        icon: "eye.fill",
                         iconColor: .orange,
-                        title: "Know your\nrisk level",
-                        subtitle: "Get a clear score showing how secure your network is. Tap any device to see exactly what's wrong and how to fix it.",
+                        title: "Anyone can\nbe watching",
+                        subtitle: "73% of home networks have at least one device with a known vulnerability. Cameras, baby monitors, and smart locks are the most common targets.",
                         page: 1
                     ).tag(1)
 
                     onboardingPage(
-                        icon: "bell.badge.fill",
-                        iconColor: .yellow,
-                        title: "Get alerted\ninstantly",
-                        subtitle: "Detriment watches your network and notifies you when a new device connects. Know immediately if someone's on your WiFi.",
+                        icon: "shield.lefthalf.filled",
+                        iconColor: .green,
+                        title: "Detriment\nfinds it all",
+                        subtitle: "One tap. Every device. Every risk. Plain English explanations and a clear score so you know exactly where you stand.",
                         page: 2
                     ).tag(2)
 
