@@ -9,7 +9,10 @@ from app.routers import lookup, ports
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await init_db()
+    try:
+        await init_db()
+    except Exception:
+        pass  # Read-only on Vercel — tables already exist in bundled DB
     yield
 
 

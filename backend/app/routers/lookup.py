@@ -6,7 +6,7 @@ from app.models.schemas import (
     BatchLookupRequest, BatchLookupResponse,
     ScanReportRequest,
 )
-from app.services.lookup import lookup_device, save_scan_report
+from app.services.lookup import lookup_device
 
 router = APIRouter(prefix="/api", tags=["lookup"])
 
@@ -28,7 +28,6 @@ async def lookup_batch(req: BatchLookupRequest, db: AsyncSession = Depends(get_d
 
 
 @router.post("/report")
-async def submit_scan_report(req: ScanReportRequest, db: AsyncSession = Depends(get_db)):
-    """Submit anonymized scan data for crowdsourced intelligence."""
-    await save_scan_report(db, req.devices, req.region)
+async def submit_scan_report(req: ScanReportRequest):
+    """Accept anonymized scan data (read-only deployment — acknowledged but not stored)."""
     return {"status": "ok", "devices_reported": len(req.devices)}
