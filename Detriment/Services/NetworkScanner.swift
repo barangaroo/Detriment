@@ -1,5 +1,7 @@
 import Foundation
 import Network
+import NetworkExtension
+import CoreLocation
 import WidgetKit
 import UIKit
 
@@ -14,6 +16,7 @@ final class NetworkScanner: ObservableObject {
 
     private let macLookup = MACVendorLookup()
     private var scanTask: Task<Void, Never>?
+    private let locationManager = CLLocationManager()
 
     func startScan() {
         guard !isScanning else { return }
@@ -56,20 +59,58 @@ final class NetworkScanner: ObservableObject {
     // MARK: - WiFi Info
 
     private func loadWiFiInfo() async {
-        // Get current WiFi info via NEHotspotNetwork or CNCopyCurrentNetworkInfo
-        // For now, use basic info available without special entitlements
-        wifiInfo = WiFiInfo(
-            ssid: getCurrentSSID(),
-            bssid: nil,
-            security: .wpa2, // Default assumption
-            signalStrength: nil
-        )
+        // Request location if needed — required for NEHotspotNetwork SSID access
+        if locationManager.authorizationStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+            // Brief pause to let the permission dialog resolve
+            try? await Task.sleep(nanoseconds: 500_000_000)
+        }
+
+        if let network = await fetchCurrentNetwork() {
+            wifiInfo = WiFiInfo(
+                ssid: network.ssid,
+                bssid: network.bssid,
+                security: mapSecurity(network),
+                signalStrength: Int(network.signalStrength * 100)
+            )
+        } else {
+            wifiInfo = WiFiInfo(
+                ssid: nil,
+                bssid: nil,
+                security: .unknown,
+                signalStrength: nil
+            )
+        }
     }
 
-    private func getCurrentSSID() -> String? {
-        // On iOS 16+, we need NEHotspotNetwork for SSID
-        // This requires the Access WiFi Information entitlement
-        return nil // Will be populated by NEHotspotNetwork
+    private func fetchCurrentNetwork() async -> NEHotspotNetwork? {
+        await withCheckedContinuation { continuation in
+            NEHotspotNetwork.fetchCurrent { network in
+                continuation.resume(returning: network)
+            }
+        }
+    }
+
+    private func mapSecurity(_ network: NEHotspotNetwork) -> WiFiSecurity {
+        if #available(iOS 16.0, *) {
+            switch network.securityType {
+            case .open:
+                return .open
+            case .WEP:
+                return .wep
+            case .personal:
+                // personal covers WPA/WPA2/WPA3 pre-shared key
+                return .wpa2
+            case .enterprise:
+                return .wpa2
+            case .unknown:
+                return .unknown
+            @unknown default:
+                return network.isSecure ? .wpa2 : .open
+            }
+        } else {
+            return network.isSecure ? .wpa2 : .open
+        }
     }
 
     // MARK: - Subnet Discovery
@@ -443,8 +484,23 @@ final class NetworkScanner: ObservableObject {
             vulnerableDevices: deviceScore
         )
 
-        // Save for widget and detect new devices
+        // Count new devices BEFORE marking them as known
+        let newCount = devices.filter { device in
+            guard let mac = device.macAddress else { return false }
+            return DeviceStorage.shared.isNewDevice(mac: mac)
+        }.count
+
+        // Save for widget and detect new devices (this marks devices as known)
         saveResultsForWidget()
+
+        // Save scan history snapshot
+        DeviceStorage.shared.saveScanSnapshot(ScanSnapshot(
+            date: Date(),
+            score: total,
+            grade: detrimentScore!.grade,
+            deviceCount: devices.count,
+            newDeviceCount: newCount
+        ))
     }
 
     // MARK: - API Enrichment

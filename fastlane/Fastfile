@@ -1,0 +1,51 @@
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Build the app"
+  lane :build do
+    build_app(
+      project: "Detriment.xcodeproj",
+      scheme: "Detriment",
+      export_method: "app-store",
+      output_directory: "./build",
+      output_name: "Detriment.ipa"
+    )
+  end
+
+  desc "Submit to App Store Connect for review"
+  lane :release do
+    build
+    upload_to_app_store(
+      skip_screenshots: true,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc "Upload metadata only (no binary)"
+  lane :metadata do
+    upload_to_app_store(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      force: true
+    )
+  end
+
+  desc "Take screenshots on simulators"
+  lane :screenshots do
+    capture_screenshots
+  end
+
+  desc "Upload screenshots only"
+  lane :upload_screenshots do
+    upload_to_app_store(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      force: true
+    )
+  end
+
+end

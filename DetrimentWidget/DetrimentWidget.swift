@@ -147,6 +147,7 @@ struct DetrimentWidgetSmall: View {
                 }
             }
         }
+        .widgetURL(URL(string: "detriment://scan"))
         .padding(14)
         .containerBackground(.black, for: .widget)
     }
@@ -238,6 +239,7 @@ struct DetrimentWidgetMedium: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .widgetURL(URL(string: "detriment://scan"))
         .padding(14)
         .containerBackground(.black, for: .widget)
     }

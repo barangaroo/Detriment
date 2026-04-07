@@ -34,6 +34,10 @@ targets:
         CURRENT_PROJECT_VERSION: 1
     entitlements:
       path: Detriment/Detriment.entitlements
+      properties:
+        com.apple.developer.networking.wifi-info: true
+        com.apple.security.application-groups:
+          - group.com.detriment.app
 
   DetrimentWidgetExtension:
     type: app-extension
@@ -50,3 +54,6 @@ targets:
         CURRENT_PROJECT_VERSION: 1
     entitlements:
       path: DetrimentWidget/DetrimentWidgetExtension.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.detriment.app

@@ -9,6 +9,8 @@
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Detriment scans your local network to discover connected devices and assess your network security.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Detriment needs your location to identify your WiFi network name and security type.</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_tcp._tcp.</string>
@@ -23,6 +25,17 @@
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>com.detriment.app.networkscan</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>detriment</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string>com.detriment.app</string>
+		</dict>
 	</array>
 </dict>
 </plist>

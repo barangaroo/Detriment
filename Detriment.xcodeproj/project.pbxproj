@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14622A897F9D6055821CECF5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */; };
+		2B630ABB1972FDCF15BBF273 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E1656159B2FA7DE17E3574F /* SettingsView.swift */; };
 		2E836A56555F4F11BDE9F987 /* BackgroundScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */; };
 		2FA704107955A8A15BECA1D9 /* DeviceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760BB9D21E75C5D442B032FD /* DeviceRow.swift */; };
 		3D0CED396A06A5CD057CACF8 /* ARPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBE78D2DC16E661EDC0F4D /* ARPCache.swift */; };
@@ -16,6 +17,7 @@
 		7F3CBF3B8EBE3BF85AC6FDBB /* DeviceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C203DC369534F290E23499BD /* DeviceStorage.swift */; };
 		83EFB938F45DB526E30B2EFE /* DetrimentWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */; };
+		932E14CCA34F0AB58E5D5CBB /* ScanHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE16DFAC01C7BFB85C64BB64 /* ScanHistoryView.swift */; };
 		9C7F330FB58A9BA122A567C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC85B3147A9B9941ACF9745E /* Assets.xcassets */; };
 		A38D3D1081A4BF47414D521C /* DetrimentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51DA82E5E2C77A5715F1780 /* DetrimentApp.swift */; };
 		A4C857BA9A111B309259A230 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B42991674D95B501F25F1D /* MainView.swift */; };
@@ -50,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E1656159B2FA7DE17E3574F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		25C92C58D99C71AD1359195B /* DetrimentWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DetrimentWidgetExtension.entitlements; sourceTree = "<group>"; };
 		2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2CFE8EE5BF7450ABED35806D /* DetrimentWidgetExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = DetrimentWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +64,7 @@
 		8D7BCF37A6A8ECE5FC092FED /* NetworkDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDevice.swift; sourceTree = "<group>"; };
 		A03231F2F625B764BEFEBB0A /* Detriment.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Detriment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2974D47EAF9E36B3CE380CD /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		AE16DFAC01C7BFB85C64BB64 /* ScanHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanHistoryView.swift; sourceTree = "<group>"; };
 		C203DC369534F290E23499BD /* DeviceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStorage.swift; sourceTree = "<group>"; };
 		C2C507D4EF021A9618502CEF /* BackgroundScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundScanner.swift; sourceTree = "<group>"; };
 		C51DA82E5E2C77A5715F1780 /* DetrimentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetrimentApp.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 				760BB9D21E75C5D442B032FD /* DeviceRow.swift */,
 				D1B42991674D95B501F25F1D /* MainView.swift */,
 				2CD53A4515D4693F24CE8FE3 /* OnboardingView.swift */,
+				AE16DFAC01C7BFB85C64BB64 /* ScanHistoryView.swift */,
+				1E1656159B2FA7DE17E3574F /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -277,6 +283,8 @@
 				B77386D96E9656CD44D3E252 /* NetworkScanner.swift in Sources */,
 				8EAF8AB535D5F78BF499A07B /* NotificationManager.swift in Sources */,
 				14622A897F9D6055821CECF5 /* OnboardingView.swift in Sources */,
+				932E14CCA34F0AB58E5D5CBB /* ScanHistoryView.swift in Sources */,
+				2B630ABB1972FDCF15BBF273 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

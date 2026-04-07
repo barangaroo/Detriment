@@ -53,6 +53,62 @@ final class DeviceStorage {
         defaults.removeObject(forKey: knownDevicesKey)
     }
 
+    // MARK: - Trusted Devices
+
+    private let trustedDevicesKey = "trustedDevices"
+
+    var trustedDeviceMACs: Set<String> {
+        Set(defaults.stringArray(forKey: trustedDevicesKey) ?? [])
+    }
+
+    func trustDevice(_ mac: String) {
+        var trusted = trustedDeviceMACs
+        trusted.insert(mac)
+        defaults.set(Array(trusted), forKey: trustedDevicesKey)
+    }
+
+    func untrustDevice(_ mac: String) {
+        var trusted = trustedDeviceMACs
+        trusted.remove(mac)
+        defaults.set(Array(trusted), forKey: trustedDevicesKey)
+    }
+
+    func isDeviceTrusted(mac: String) -> Bool {
+        trustedDeviceMACs.contains(mac)
+    }
+
+    func clearTrustedDevices() {
+        defaults.removeObject(forKey: trustedDevicesKey)
+    }
+
+    // MARK: - Custom Device Names
+
+    private let deviceNamesKey = "deviceNames"
+
+    private var deviceNames: [String: String] {
+        defaults.dictionary(forKey: deviceNamesKey) as? [String: String] ?? [:]
+    }
+
+    func setDeviceName(_ mac: String, name: String) {
+        var names = deviceNames
+        names[mac] = name
+        defaults.set(names, forKey: deviceNamesKey)
+    }
+
+    func getDeviceName(_ mac: String) -> String? {
+        deviceNames[mac]
+    }
+
+    func removeDeviceName(_ mac: String) {
+        var names = deviceNames
+        names.removeValue(forKey: mac)
+        defaults.set(names, forKey: deviceNamesKey)
+    }
+
+    func clearDeviceNames() {
+        defaults.removeObject(forKey: deviceNamesKey)
+    }
+
     // MARK: - Last Scan Results (for widget)
 
     var lastScanDate: Date? {
@@ -99,6 +155,31 @@ final class DeviceStorage {
 
     var savedScore: Int { defaults.integer(forKey: "detrimentScore") }
     var savedGrade: String { defaults.string(forKey: "detrimentGrade") ?? "?" }
+
+    // MARK: - Scan History
+
+    private let scanHistoryKey = "scanHistory"
+
+    func saveScanSnapshot(_ snapshot: ScanSnapshot) {
+        var history = loadScanHistory()
+        history.insert(snapshot, at: 0)
+        if history.count > 30 { history = Array(history.prefix(30)) }
+        if let data = try? JSONEncoder().encode(history) {
+            defaults.set(data, forKey: scanHistoryKey)
+        }
+    }
+
+    func loadScanHistory() -> [ScanSnapshot] {
+        guard let data = defaults.data(forKey: scanHistoryKey),
+              let history = try? JSONDecoder().decode([ScanSnapshot].self, from: data) else {
+            return []
+        }
+        return history
+    }
+
+    func clearHistory() {
+        defaults.removeObject(forKey: scanHistoryKey)
+    }
 }
 
 /// Codable version of device for persistence
@@ -131,4 +212,13 @@ struct StoredDevice: Codable, Identifiable {
         self.firstSeen = Date()
         self.isNew = isNew
     }
+}
+
+struct ScanSnapshot: Codable, Identifiable {
+    var id: Date { date }
+    let date: Date
+    let score: Int
+    let grade: String
+    let deviceCount: Int
+    let newDeviceCount: Int
 }

@@ -4,6 +4,8 @@ struct DeviceDetailView: View {
     let device: NetworkDevice
     var intel: DeviceIntel?
     @Environment(\.dismiss) private var dismiss
+    @State private var isTrusted: Bool = false
+    @State private var customName: String = ""
 
     var body: some View {
         NavigationStack {
@@ -13,12 +15,21 @@ struct DeviceDetailView: View {
                 ScrollView {
                     VStack(spacing: 24) {
                         deviceHeader
+
+                        // Actions
+                        if device.macAddress != nil {
+                            actionsSection
+                        }
+
                         infoSection
                         if !device.openPorts.isEmpty {
                             portsSection
                         }
                         if let intel = intel, !intel.vulnerabilities.isEmpty {
                             vulnSection(intel.vulnerabilities)
+                        }
+                        if let intel = intel, !intel.tips.isEmpty {
+                            tipsSection(intel.tips)
                         }
                         // Show WHAT TO KNOW only if there are actual risk reasons beyond "looks fine"
                         if hasRealRisks {
@@ -29,6 +40,12 @@ struct DeviceDetailView: View {
                         }
                     }
                     .padding(20)
+                }
+                .onAppear {
+                    if let mac = device.macAddress {
+                        isTrusted = DeviceStorage.shared.isDeviceTrusted(mac: mac)
+                        customName = DeviceStorage.shared.getDeviceName(mac) ?? ""
+                    }
                 }
             }
             .navigationTitle("")
@@ -82,6 +99,74 @@ struct DeviceDetailView: View {
                     Capsule().fill(riskColor.opacity(0.15))
                 )
         }
+    }
+
+    // MARK: - Actions
+
+    private var actionsSection: some View {
+        VStack(spacing: 0) {
+            sectionHeader("MANAGE")
+
+            // Custom name
+            HStack(spacing: 12) {
+                Image(systemName: "pencil")
+                    .font(.system(size: 14))
+                    .foregroundColor(.gray)
+                    .frame(width: 20)
+                TextField("Custom name", text: $customName)
+                    .font(.system(size: 14, design: .monospaced))
+                    .foregroundColor(.white)
+                    .autocorrectionDisabled()
+                    .onSubmit {
+                        guard let mac = device.macAddress else { return }
+                        if customName.isEmpty {
+                            DeviceStorage.shared.removeDeviceName(mac)
+                        } else {
+                            DeviceStorage.shared.setDeviceName(mac, name: customName)
+                        }
+                    }
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+
+            Divider()
+                .background(Color.white.opacity(0.05))
+                .padding(.leading, 16)
+
+            // Trust toggle
+            Button(action: {
+                guard let mac = device.macAddress else { return }
+                isTrusted.toggle()
+                if isTrusted {
+                    DeviceStorage.shared.trustDevice(mac)
+                } else {
+                    DeviceStorage.shared.untrustDevice(mac)
+                }
+            }) {
+                HStack(spacing: 12) {
+                    Image(systemName: isTrusted ? "checkmark.shield.fill" : "shield.slash")
+                        .font(.system(size: 14))
+                        .foregroundColor(isTrusted ? .green : .gray)
+                        .frame(width: 20)
+                    Text(isTrusted ? "Trusted" : "Trust This Device")
+                        .font(.system(size: 14, weight: .medium, design: .monospaced))
+                        .foregroundColor(isTrusted ? .green : .white)
+                    Spacer()
+                    if isTrusted {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundColor(.green)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+        }
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.white.opacity(0.03))
+        )
     }
 
     // MARK: - Info

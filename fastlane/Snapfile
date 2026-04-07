@@ -1,0 +1,11 @@
+devices([
+  "iPhone 17 Pro Max",
+  "iPhone 17",
+  "iPad Pro 13-inch (M5)"
+])
+
+languages(["en-US"])
+
+scheme("Detriment")
+output_directory("./fastlane/screenshots")
+clear_previous_screenshots(true)

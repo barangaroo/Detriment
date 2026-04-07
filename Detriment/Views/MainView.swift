@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var scanner = NetworkScanner()
+    @ObservedObject var scanner: NetworkScanner
     @State private var selectedDevice: NetworkDevice?
     @State private var pulseScale: CGFloat = 1.0
     @State private var radarAngle: Double = 0
     @State private var showScore = false
+    @State private var showShareSheet = false
 
     var body: some View {
         NavigationStack {
@@ -32,6 +33,35 @@ struct MainView: View {
                     if !scanner.devices.isEmpty {
                         deviceList
                             .transition(.move(edge: .bottom))
+                    } else if !scanner.isScanning && scanner.detrimentScore != nil {
+                        Spacer()
+                        VStack(spacing: 16) {
+                            Image(systemName: "wifi.slash")
+                                .font(.system(size: 40))
+                                .foregroundColor(.gray.opacity(0.4))
+                            Text("No devices found")
+                                .font(.system(size: 16, weight: .semibold, design: .monospaced))
+                                .foregroundColor(.gray)
+                            Text("Your network might be blocking scans.\nTry connecting to a different WiFi.")
+                                .font(.system(size: 13, design: .monospaced))
+                                .foregroundColor(.gray.opacity(0.6))
+                                .multilineTextAlignment(.center)
+                            Button(action: { withAnimation { scanner.startScan() } }) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "arrow.clockwise")
+                                        .font(.system(size: 12, weight: .bold))
+                                    Text("Try Again")
+                                        .font(.system(size: 13, weight: .medium, design: .monospaced))
+                                }
+                                .foregroundColor(.red)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(Capsule().fill(Color.red.opacity(0.1)))
+                            }
+                            .buttonStyle(.plain)
+                        }
+                        .transition(.opacity)
+                        Spacer()
                     }
                 }
                 .animation(.easeInOut(duration: 0.4), value: scanner.isScanning)
@@ -39,6 +69,20 @@ struct MainView: View {
             }
             .navigationTitle("")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    HStack(spacing: 2) {
+                        NavigationLink(destination: ScanHistoryView()) {
+                            Image(systemName: "clock")
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
+                        }
+                        NavigationLink(destination: SettingsView()) {
+                            Image(systemName: "gearshape")
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
                 ToolbarItem(placement: .principal) {
                     HStack(spacing: 6) {
                         Image(systemName: "shield.lefthalf.filled")
@@ -47,6 +91,15 @@ struct MainView: View {
                         Text("DETRIMENT")
                             .font(.system(size: 17, weight: .black, design: .monospaced))
                             .foregroundColor(.red)
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    if scanner.detrimentScore != nil {
+                        ShareLink(item: generateShareReport()) {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.system(size: 15))
+                                .foregroundColor(.gray)
+                        }
                     }
                 }
             }
@@ -124,7 +177,15 @@ struct MainView: View {
                     .font(.system(size: 14, weight: .medium, design: .monospaced))
                     .foregroundColor(.gray)
 
-                if let ip = scanner.getLocalIPAddress() {
+                if let ssid = scanner.wifiInfo?.ssid {
+                    HStack(spacing: 4) {
+                        Image(systemName: "wifi")
+                            .font(.system(size: 10))
+                        Text(ssid)
+                            .font(.system(size: 12, weight: .medium, design: .monospaced))
+                    }
+                    .foregroundColor(.gray.opacity(0.5))
+                } else if let ip = scanner.getLocalIPAddress() {
                     Text(ip)
                         .font(.system(size: 12, design: .monospaced))
                         .foregroundColor(.gray.opacity(0.4))
@@ -302,6 +363,31 @@ struct MainView: View {
             .padding(.horizontal, 20)
             .padding(.top, 16)
 
+            // WiFi info bar
+            if let wifi = scanner.wifiInfo, wifi.ssid != nil || wifi.security != .unknown {
+                HStack(spacing: 12) {
+                    if let ssid = wifi.ssid {
+                        HStack(spacing: 4) {
+                            Image(systemName: "wifi")
+                                .font(.system(size: 10, weight: .bold))
+                            Text(ssid)
+                                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                        }
+                        .foregroundColor(.white.opacity(0.6))
+                    }
+                    Spacer()
+                    HStack(spacing: 4) {
+                        Image(systemName: wifi.security == .wpa3 ? "lock.shield.fill" : wifi.security == .open || wifi.security == .wep ? "lock.open.fill" : "lock.fill")
+                            .font(.system(size: 10))
+                        Text(wifi.security.rawValue)
+                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    }
+                    .foregroundColor(wifiSecurityColor(wifi.security))
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 8)
+            }
+
             // Score breakdown chips
             HStack(spacing: 8) {
                 scoreChip("WiFi", score.networkSecurity, max: 25, icon: "wifi")
@@ -395,6 +481,9 @@ struct MainView: View {
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)
+        .refreshable {
+            scanner.startScan()
+        }
     }
 
     // MARK: - Helpers
@@ -407,6 +496,39 @@ struct MainView: View {
         case 61...80: return .orange
         default: return .red
         }
+    }
+
+    private func wifiSecurityColor(_ security: WiFiSecurity) -> Color {
+        switch security {
+        case .wpa3: return .green
+        case .wpa2: return .mint
+        case .wpa: return .yellow
+        case .wep, .open: return .red
+        case .unknown: return .gray
+        }
+    }
+
+    private func generateShareReport() -> String {
+        let score = scanner.detrimentScore
+        let grade = score?.grade ?? "?"
+        let total = score?.total ?? 0
+        let count = scanner.devices.count
+        let risky = scanner.devices.filter { $0.riskLevel >= .medium }.count
+        let wifi = scanner.wifiInfo?.ssid ?? "Unknown"
+        let security = scanner.wifiInfo?.security.rawValue ?? "Unknown"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy h:mm a"
+        let date = formatter.string(from: Date())
+
+        return """
+        DETRIMENT SCORE: \(grade) (\(total)/100)
+        \(count) devices on WiFi
+        \(risky > 0 ? "\(risky) need attention" : "All clear")
+        WiFi: \(wifi) (\(security))
+        Scanned: \(date)
+
+        Scanned with Detriment — WiFi Security Scanner
+        """
     }
 
     private func scoreGradient(_ score: DetrimentScore) -> [Color] {

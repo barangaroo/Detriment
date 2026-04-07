@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct DetrimentApp: App {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
+    @StateObject private var scanner = NetworkScanner()
 
     init() {
         NotificationManager.shared.requestPermission()
@@ -15,13 +16,19 @@ struct DetrimentApp: App {
                 if !hasSeenOnboarding {
                     OnboardingView(hasSeenOnboarding: $hasSeenOnboarding)
                 } else {
-                    MainView()
+                    MainView(scanner: scanner)
                         .onAppear {
                             BackgroundScanner.shared.scheduleBackgroundScan()
                         }
                 }
             }
             .preferredColorScheme(.dark)
+            .onOpenURL { url in
+                guard url.scheme == "detriment", url.host == "scan" else { return }
+                if hasSeenOnboarding {
+                    scanner.startScan()
+                }
+            }
         }
     }
 }
