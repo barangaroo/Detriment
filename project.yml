@@ -29,9 +29,10 @@ targets:
         INFOPLIST_KEY_CFBundleDisplayName: "Detriment"
         INFOPLIST_KEY_UILaunchScreen_Generation: true
         INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait"
+        INFOPLIST_KEY_UIRequiresFullScreen: true
         INFOPLIST_KEY_UIBackgroundModes: "fetch"
         MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: 1
+        CURRENT_PROJECT_VERSION: 2
     entitlements:
       path: Detriment/Detriment.entitlements
       properties:
@@ -46,12 +47,11 @@ targets:
       - DetrimentWidget
     settings:
       base:
-        GENERATE_INFOPLIST_FILE: YES
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: DetrimentWidget/Info.plist
         PRODUCT_BUNDLE_IDENTIFIER: com.detriment.app.widget
-        INFOPLIST_KEY_CFBundleDisplayName: "Detriment Widget"
-        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
         MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: 1
+        CURRENT_PROJECT_VERSION: 2
     entitlements:
       path: DetrimentWidget/DetrimentWidgetExtension.entitlements
       properties:

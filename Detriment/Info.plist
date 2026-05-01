@@ -11,7 +11,9 @@
 	<string>Detriment scans your local network to discover connected devices and assess your network security.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Detriment needs your location to identify your WiFi network name and security type.</string>
-<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>com.detriment.app.networkscan</string>
 	</array>

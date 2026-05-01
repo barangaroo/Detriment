@@ -1,37 +1,36 @@
-Your WiFi isn't as safe as you think.
+Know what's on your WiFi.
 
-The average home network has 17 connected devices. Most people can't name half of them. Detriment scans your network in seconds and shows you everything — every device, every open port, every risk — in plain English.
+Home networks collect phones, laptops, cameras, speakers, TVs, and smart devices. Detriment scans your local network and highlights detected devices, open services, and likely risks in plain English.
 
 FREE: SCAN AND SEE YOUR SCORE
 Download for free and run your first scan immediately. See your Detriment Score (A-F), how many devices are on your network, and which ones need attention. No account, no signup.
 
 UNLOCK FULL INTEL ($3.99 one-time)
-Tap any device to see exactly what's going on:
+Tap any device to see what Detriment observed:
 - Open ports and what they mean
 - Known vulnerabilities for that device's manufacturer
 - Step-by-step fix instructions
 - Security tips from our database
 - Trust and label your own devices
 
-WHAT IT FINDS
-- Every device on your WiFi, identified by name and manufacturer
-- Open ports that could let attackers in
-- Cameras streaming video that others might watch
+WHAT IT CHECKS
+- Detected devices on your WiFi, identified by name and manufacturer when available
+- Open ports that may expose local services
+- Cameras or devices with RTSP video streams visible on your network
 - Devices with insecure remote access enabled
-- Cheap IoT chips with known security problems
-- Mystery devices nobody can identify
+- IoT devices with known manufacturer-level security notes
+- Mystery devices you may want to investigate
 
 STAY INFORMED
-- Get notified instantly when a new device joins your network
-- Background monitoring even when the app is closed
+- Get notified when supported background checks find a likely new device
 - Home screen widget with your score and new device alerts
 - Scan history tracks your network security over time
-- See how your network compares to others
 
 PRIVACY FIRST
 - No account required
 - Your network data stays on your device
+- Optional Improve Detection sharing sends MAC prefixes and open ports, not full device IDs
 - No ads, no tracking
 - One-time purchase, no subscription
 
-73% of home networks have at least one device with a known vulnerability. Find out if yours is one of them.
+Run a scan and check what your network exposes.

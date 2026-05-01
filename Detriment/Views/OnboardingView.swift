@@ -16,24 +16,24 @@ struct OnboardingView: View {
                     onboardingPage(
                         icon: "exclamationmark.triangle.fill",
                         iconColor: .red,
-                        title: "Your WiFi\nisn't safe",
-                        subtitle: "The average home network has 17 connected devices. Most people can only name half of them.",
+                        title: "Know your\nWiFi",
+                        subtitle: "Home networks collect phones, laptops, cameras, speakers, TVs, and smart devices. Detriment helps you see what is actually there.",
                         page: 0
                     ).tag(0)
 
                     onboardingPage(
                         icon: "eye.fill",
                         iconColor: .orange,
-                        title: "Anyone can\nbe watching",
-                        subtitle: "73% of home networks have at least one device with a known vulnerability. Cameras, baby monitors, and smart locks are the most common targets.",
+                        title: "Spot visible\nrisks",
+                        subtitle: "Open services, unknown devices, and outdated equipment can be hard to notice. Detriment highlights what it can observe on your local network.",
                         page: 1
                     ).tag(1)
 
                     onboardingPage(
                         icon: "shield.lefthalf.filled",
                         iconColor: .green,
-                        title: "Detriment\nfinds it all",
-                        subtitle: "One tap. Every device. Every risk. Plain English explanations and a clear score so you know exactly where you stand.",
+                        title: "Check it\nfast",
+                        subtitle: "One tap starts a local scan. You get detected devices, observed risks, plain-English explanations, and a clear score.",
                         page: 2
                     ).tag(2)
 

@@ -1,9 +1,9 @@
 Initial release.
 
-- Scan your WiFi network and discover every connected device
+- Scan your WiFi network and detect connected devices
 - Get a Detriment Score (A-F) showing your network security level
 - See open ports, risky devices, and unknown connections
-- Background monitoring with new device notifications
+- Supported background checks with new device notifications
 - Home screen widget with score and alerts
 - Trust devices and set custom names
 - Scan history to track changes over time

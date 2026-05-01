@@ -1,6 +1,8 @@
 screenshot_*.png
+!website/public/screenshot_*.png
 backend/.env
 backend/.venv/
 backend/*.db
 *.xcuserdata
 DerivedData/
+build/

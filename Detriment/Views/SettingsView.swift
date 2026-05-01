@@ -77,7 +77,7 @@ struct SettingsView: View {
                                 Text("Improve Detection")
                                     .font(.system(size: 14, weight: .medium, design: .monospaced))
                                     .foregroundColor(.white)
-                                Text("Share anonymous device types to help everyone")
+                                Text("Share MAC prefixes and open ports, never full device IDs")
                                     .font(.system(size: 11, design: .monospaced))
                                     .foregroundColor(.gray)
                             }

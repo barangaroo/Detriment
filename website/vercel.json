@@ -1,8 +1,9 @@
 {
-  "buildCommand": "cp -r public dist",
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp -R public/. dist",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/privacy", "destination": "/privacy.html" }
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/support", "destination": "/support.html" }
   ],
   "headers": [
     {

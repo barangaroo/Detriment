@@ -26,17 +26,17 @@
     <p>Detriment is a WiFi security scanner that runs on your device. We built it with privacy as a core principle.</p>
 
     <h2>What stays on your device</h2>
-    <p>All of the following data is stored locally on your device and <strong>never transmitted</strong>:</p>
+    <p>All of the following data is stored locally on your device and is <strong>not included in Detriment API requests</strong>:</p>
     <ul>
         <li>IP addresses of devices on your network</li>
         <li>Full MAC addresses and device identifiers</li>
         <li>Device hostnames and custom names you assign</li>
-        <li>Your WiFi network name (SSID) and security type</li>
+        <li>Your WiFi network name (SSID)</li>
         <li>Scan history, scores, and trusted device preferences</li>
     </ul>
 
-    <h2>Optional anonymous data sharing</h2>
-    <p>If you enable <strong>"Improve Detection"</strong> in Settings, Detriment sends the following anonymized data to our API (<code>api.detriment.ai</code>) after each scan:</p>
+    <h2>Optional detection improvement data</h2>
+    <p>If you enable <strong>"Improve Detection"</strong> in Settings, Detriment sends the following limited scan data to our API (<code>api.detriment.ai</code>) after each scan:</p>
 
     <table>
         <tr><th>Data</th><th>Example</th><th>Purpose</th></tr>
@@ -44,9 +44,9 @@
         <tr><td>Open port numbers</td><td><code>[80, 443, 554]</code></td><td>Improves device type detection</td></tr>
     </table>
 
-    <p>This feature is <strong>off by default</strong>. You must explicitly enable it. No request includes your IP address, full MAC address, device name, network name, location, or any user identifier. Requests are stateless — we cannot correlate reports across sessions.</p>
+    <p>This feature is <strong>off by default</strong>. You must explicitly enable it. No request includes your local device IP address, full MAC address, device name, network name, precise location, or any account identifier. Like any internet service, our API may receive technical request metadata such as your public IP address while handling the request.</p>
 
-    <p>We also query the same API to enrich scan results with manufacturer names and known vulnerabilities. These lookup requests contain only MAC prefixes and port numbers, identical to the table above.</p>
+    <p>We also query the same API to enrich scan results with manufacturer names and known vulnerability information. These lookup requests contain only MAC prefixes and port numbers, identical to the table above.</p>
 
     <h2>Location data</h2>
     <p>Detriment requests location permission because <strong>Apple requires it</strong> for apps that read your WiFi network name (SSID) and security type via the NEHotspotNetwork API. This is an iOS platform requirement, not our choice.</p>
@@ -56,10 +56,10 @@
     <p>Detriment accesses your local network to discover devices via TCP connection attempts and reads the system ARP cache for MAC addresses. All discovered device data remains on your device.</p>
 
     <h2>Third-party services</h2>
-    <p>Detriment contains <strong>zero</strong> third-party analytics, advertising, crash reporting, or tracking SDKs. The only network requests are to our own API at <code>api.detriment.ai</code>.</p>
+    <p>Detriment contains <strong>zero</strong> third-party analytics, advertising, crash reporting, or tracking SDKs. App lookup and optional reporting requests go only to our own API at <code>api.detriment.ai</code>.</p>
 
     <h2>Data retention</h2>
-    <p>If you enable anonymous data sharing, the anonymized device type data is retained on our server for up to 12 months to improve detection accuracy, then permanently deleted. We have no way to associate this data with you or your device.</p>
+    <p>Current optional scan reports are acknowledged by our API but are not stored. If we later retain aggregated reports to improve detection, we will update this policy before doing so.</p>
 
     <h2>Children</h2>
     <p>Detriment does not knowingly collect data from children under 13.</p>
@@ -68,6 +68,6 @@
     <p>We may update this policy. Changes will be posted on this page with an updated effective date.</p>
 
     <h2>Contact</h2>
-    <p>Questions? Email <strong>privacy@detriment.ai</strong></p>
+    <p>Questions? Email <strong>privacy@detriment.ai</strong> or visit <a href="/support" style="color:#ff3b30;">Support</a>.</p>
 </body>
 </html>

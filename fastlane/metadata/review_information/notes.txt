@@ -5,6 +5,6 @@ Detriment is a WiFi network security scanner. To test:
 3. Tap the SCAN button to scan your network
 4. The app will discover devices on your local network via TCP probing and display results with a security score
 
-Note: The app requires an active WiFi connection to function. It uses local network access to discover devices via TCP connection attempts and reads the ARP cache for MAC addresses. No data leaves the device except anonymized device type statistics sent to our API for improving detection accuracy.
+Note: The app requires an active WiFi connection to function. It uses local network access to discover devices via TCP connection attempts and reads the ARP cache for MAC addresses. Lookup and optional Improve Detection requests send only MAC prefixes and open port numbers to our API, not full MAC addresses, local IP addresses, device names, network names, or account identifiers.
 
 If testing on simulator, the app uses mock data to demonstrate all features.
